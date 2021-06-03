@@ -15,12 +15,23 @@ const updateCounterView = () => {
 
 const addToCounter = () => {
   const val = parseInt(document.querySelector('input.valueInputField').value, 10);
-  counterValue+=val
+  counterValue+=val;
+  if (counterValue >= 0){
+    counterValueEl.style.color ='black'
+  }else{
+    counterValueEl.style.color = 'red'
+  }
 }
 
 const subtractCounter = () => {
   const val = parseInt(document.querySelector('input.valueInputField').value, 10);
-  counterValue-=val
+  counterValue-=val;
+  //if I want to change the color when it's negative
+  if (counterValue >= 0){
+    counterValueEl.style.color ='black'
+  }else{
+    counterValueEl.style.color = 'red'
+  }
 }
 
 counterButtonSubtract.addEventListener('click', (e) => {
@@ -31,8 +42,7 @@ counterButtonSubtract.addEventListener('click', (e) => {
 counterButtonAdd.addEventListener('click', (e) => {
   addToCounter()
   updateCounterView()
-  //pull the value of the valueInputField
-  //then do math
+
 })
 
 //console.log (val)
